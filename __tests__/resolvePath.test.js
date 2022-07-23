@@ -1,3 +1,4 @@
+const { test, expect } = require('@jest/globals');
 const { cwd } = require('process');
 const resolvePath = require('../modules/resolvePath');
 
@@ -10,6 +11,6 @@ const resolvedPath1 = workingDirectory.concat('\\__fixtures__\\file.json');
 const resolvedPath2 = workingDirectory.concat('\\modules\\file.js');
 
 test('path resolved', () => {
-    expect(resolvePath(path1)).toBe(resolvedPath1);
-    expect(resolvePath(path2)).toBe(resolvedPath2)
+  expect(resolvePath(path1)).toBe(resolvedPath1);
+  expect(resolvePath(path2)).toBe(resolvedPath2);
 });

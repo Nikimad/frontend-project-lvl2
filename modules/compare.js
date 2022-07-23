@@ -1,7 +1,6 @@
 const { has } = require('lodash');
 const getAnswer = require('./getAnswer');
 
-
 function compare(obj1, obj2, key) {
   let result = '';
   //  the key always exists in one of the objects
