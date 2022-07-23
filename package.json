@@ -1,0 +1,25 @@
+{
+  "name": "@hexlet/code",
+  "version": "1.0.0",
+  "description": "[![Actions Status](https://github.com/Nikimad/frontend-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/Nikimad/frontend-project-lvl2/actions)",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nikimad/frontend-project-lvl2.git"
+  },
+  "author": "Nikimad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nikimad/frontend-project-lvl2/issues"
+  },
+  "homepage": "https://github.com/Nikimad/frontend-project-lvl2#readme",
+  "devDependencies": {
+    "eslint": "^8.20.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "jest": "^28.1.3"
+  }
+}
