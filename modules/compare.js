@@ -1,14 +1,6 @@
 const { has } = require('lodash');
+const getAnswer = require('./getAnswer');
 
-function getAnswer(prefix, key, value) {
-  const prefixes = {
-    gen: '\n   ',
-    fprop: '\n  -',
-    sprop: '\n  +',
-  };
-
-  return `${prefixes[prefix]} ${key}: ${value}`;
-}
 
 function compare(obj1, obj2, key) {
   let result = '';
