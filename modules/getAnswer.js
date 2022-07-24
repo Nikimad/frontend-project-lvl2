@@ -1,8 +1,8 @@
 function getAnswer(prefix, key, value) {
   const prefixes = {
-    gen: '\n   ',
-    fprop: '\n  -',
-    sprop: '\n  +',
+    gen: '\r\n   ',
+    fprop: '\r\n  -',
+    sprop: '\r\n  +',
   };
 
   return `${prefixes[prefix]} ${key}: ${value}`;
