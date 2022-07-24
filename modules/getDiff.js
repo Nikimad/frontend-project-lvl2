@@ -1,3 +1,4 @@
+const { EOL } = require('node:os');
 const getData = require('./getData');
 const getKeys = require('./getKeys');
 const compareByKey = require('./compareByKey');
@@ -8,7 +9,7 @@ function getDiff(filepath1, filepath2) {
 
   const diff = keys.map((key) => compareByKey(obj1, obj2, key)).join('');
 
-  return `{${diff}\r\n}`;
+  return `{${diff}${EOL}}`;
 }
 
 module.exports = getDiff;
