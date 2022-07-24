@@ -1,25 +1,12 @@
 const { test, expect } = require('@jest/globals');
+const { getFixturePath } = require('../__fixtures__/test-functions');
+const { obj1, obj2 } = require('../__fixtures__/test-objects');
 const getData = require('../modules/getData');
 
-const filePath1 = '__fixtures__/file1.json';
-const filePath2 = '__fixtures__/file2.json';
-
-const obj1 = {
-  host: 'hexlet.io',
-  timeout: 50,
-  proxy: '123.234.53.22',
-  follow: false,
-};
-const obj2 = {
-  timeout: 20,
-  verbose: true,
-  host: 'hexlet.io',
-};
-
 test('data received in obj', () => {
-  expect(typeof getData(filePath1)).toBe('object');
+  expect(typeof getData(getFixturePath('file1.json'))).toBe('object');
 });
 test('data received', () => {
-  expect(getData(filePath1)).toEqual(obj1);
-  expect(getData(filePath2)).toEqual(obj2);
+  expect(getData(getFixturePath('file1.json'))).toEqual(obj1);
+  expect(getData(getFixturePath('file2.json'))).toEqual(obj2);
 });
