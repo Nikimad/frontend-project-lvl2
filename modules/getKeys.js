@@ -1,4 +1,4 @@
-const { keys } = require('lodash');
+const { keys, uniq } = require('lodash');
 
 function getKeys(...objects) {
   //  get all keys
@@ -8,7 +8,7 @@ function getKeys(...objects) {
     return acc;
   }, []);
   //  get unique keys
-  const keysSet = Array.from(new Set(keysArr));
+  const keysSet = uniq(keysArr);
 
   const sortedKeys = keysSet.sort((a, b) => (a.toLowerCase() > b.toLowerCase() ? 1 : -1));
 
