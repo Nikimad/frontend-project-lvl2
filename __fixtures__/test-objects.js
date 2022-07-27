@@ -55,7 +55,6 @@ const obj2 = {
     fee: 100500,
   },
 };
-
 const obj3 = {
   host: 'hexlet.io',
   timeout: 50,
