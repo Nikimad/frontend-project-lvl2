@@ -6,28 +6,28 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/8206becf51ecd1fd9a9a/test_coverage)](https://codeclimate.com/github/Nikimad/frontend-project-lvl2/test_coverage)
 
 - difference calculator
-input:
-`
-{
 
+input:
+
+````json
+{
   "host": "hexlet.io",
-  
   "timeout": 50,
-  
   "proxy": "123.234.53.22",
-  
   "follow": false
-  
 }
+````
+
+````json
 {
   "timeout": 20,
   "verbose": true,
   "host": "hexlet.io"
 }
-`
+
 output:
 stylish
-`
+````javascript
 {
 
   - follow: false
@@ -43,4 +43,4 @@ stylish
   + verbose: true
  
 }
-`
+````
