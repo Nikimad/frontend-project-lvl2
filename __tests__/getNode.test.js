@@ -1,29 +1,17 @@
 const { test, expect } = require('@jest/globals');
+const { obj1, obj2, obj3, obj4 } = require('../__fixtures__/test-objects');
 const {
-  obj1, obj2, obj3, obj4,
-} = require('../__fixtures__/test-objects');
+    flat,
+    nested
+  } = require('../__fixtures__/newType-trees');
 //  test function
 const getNode = require('../typer/getNode');
 
-const keyHostNodeTypeSim = { name: 'host', type: 'sim', value: 'hexlet.io' };
-const keyProxyNodeTypeRemove = { name: 'proxy', type: 'remove', value: '123.234.53.22' };
-const keyVerboseNodeTypeAdd = { name: 'verbose', type: 'add', value: true };
-const keyTimeoutNodeTypeUpdate = {
-  name: 'timeout', type: 'update', before: 50, after: 20,
-};
-const keyGroup1NodeTypeNested = {
-  name: 'group1',
-  type: 'nested',
-  children: [
-    {
-      name: 'baz', type: 'update', before: 'bas', after: 'bars',
-    },
-    { name: 'foo', type: 'sim', value: 'bar' },
-    {
-      name: 'nest', type: 'update', before: { key: 'value' }, after: 'str',
-    },
-  ],
-};
+const keyHostNodeTypeSim = flat[1];
+const keyProxyNodeTypeRemove = flat[2];
+const keyVerboseNodeTypeAdd = flat[4];
+const keyTimeoutNodeTypeUpdate = flat[3];
+const keyGroup1NodeTypeNested = nested[1];
 
 test('basic cases', () => {
   expect(getNode(obj3, obj4, 'host')).toEqual(keyHostNodeTypeSim);//  sim value
