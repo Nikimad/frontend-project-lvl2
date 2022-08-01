@@ -1,9 +1,11 @@
 const { test, expect } = require('@jest/globals');
-const { obj1, obj2, obj3, obj4 } = require('../__fixtures__/test-objects');
 const {
-    flat,
-    nested
-  } = require('../__fixtures__/newType-trees');
+  obj1, obj2, obj3, obj4,
+} = require('../__fixtures__/test-objects');
+const {
+  flat,
+  nested,
+} = require('../__fixtures__/newType-trees');
 //  test function
 const getNode = require('../typer/getNode');
 
