@@ -12,4 +12,5 @@ module.exports = (filepath1, filepath2, format = 'stylish') => {
   const result = formater[format](data);
   //  show result
   console.log(result);
+  return result;
 };
