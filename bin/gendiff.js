@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const { Command } = require('commander');
 //  main action
 const getDiff = require('../src/index');
