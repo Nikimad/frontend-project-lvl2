@@ -5,16 +5,16 @@ const {
 const {
   flat,
   nested,
-} = require('../__fixtures__/newType-trees');
+} = require('../__fixtures__/test-trees');
 //  test function
 const getNode = require('../typer/getNode');
-
+//  expected nodes
 const keyHostNodeTypeSim = flat[1];
 const keyProxyNodeTypeRemove = flat[2];
 const keyVerboseNodeTypeAdd = flat[4];
 const keyTimeoutNodeTypeUpdate = flat[3];
 const keyGroup1NodeTypeNested = nested[1];
-
+//  test
 test('basic cases', () => {
   expect(getNode(obj3, obj4, 'host')).toEqual(keyHostNodeTypeSim);//  sim value
   expect(getNode(obj3, obj4, 'proxy')).toEqual(keyProxyNodeTypeRemove);// remove value

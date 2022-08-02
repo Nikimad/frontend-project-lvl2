@@ -1,6 +1,6 @@
 const { isObject, has } = require('lodash');
-const getCustomEOL = require('../modules/getCustomEOL');
-const strigifyObj = require('../modules/stringifyObj');
+const getCustomEOL = require('../../modules/getCustomEOL');
+const strigifyObj = require('../../modules/stringifyObj');
 //  prefixes
 const prefixes = {
   sim: '  ',

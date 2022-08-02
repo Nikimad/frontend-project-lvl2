@@ -5,10 +5,10 @@ const {
 const {
   flat,
   nested,
-} = require('../__fixtures__/newType-trees');
+} = require('../__fixtures__/test-trees');
 //  test function
 const getTree = require('../typer/getTree');
-
+//  test
 test('basic case', () => {
   expect(getTree(obj3, obj4)).toEqual(flat);
 });
