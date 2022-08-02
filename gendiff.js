@@ -1,11 +1,8 @@
 const { Command } = require('commander');
-const getParsedFileData = require('./parser/parser');
 //  main action
 const getDiff = require('./src/index');
 
 const program = new Command();
-
-
 
 program
   .description('Compares two configuration files and shows a difference.')

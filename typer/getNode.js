@@ -3,18 +3,18 @@ const {
 } = require('lodash');
 const getKeys = require('../modules/getKeys');
 
+const getChildren = (o1, o2, getter) => {
+  const chidrenKeys = getKeys(o1, o2);
+  const children = chidrenKeys.map((childKey) => getter(o1, o2, childKey));
+  return children;
+};
+
 const getNode = (obj1, obj2, key) => {
-  //  get children for nested case
-  const getChildren = (o1, o2) => {
-    const chidrenKeys = getKeys(o1, o2);
-    const children = chidrenKeys.map((childKey) => getNode(o1, o2, childKey));
-    return children;
-  };
   //    cases map
   const map = {
     complex: (v1, v2, node) => { //  value is nested -> go deep *recursion start
       set(node, 'type', 'nested');
-      set(node, 'children', getChildren(v1, v2));
+      set(node, 'children', getChildren(v1, v2, getNode));
     },
     average: (v1, v2, node) => {
       if (isEqual(v1, v2)) { //  simmilar values
@@ -43,14 +43,10 @@ const getNode = (obj1, obj2, key) => {
   const node = {
     name: key,
   };
-  if (isObject(before) && isObject(after)) { //  nested -> *recursion start
-    map.complex(before, after, node);
-  } else if (has(obj1, key) && has(obj2, key)) { // simmilar/update
-    map.average(before, after, node);
-  } else if (has(obj1, key)) { // remove/add
-    map.simple(before, after, node, 'remove');
+  if (has(obj1, key) && has(obj2, key)) {
+    map[isObject(before) && isObject(after) ? 'complex' : 'average'](before, after, node);
   } else {
-    map.simple(before, after, node, 'add');
+    map.simple(before, after, node, has(obj1, key) ? 'remove' : 'add');
   }
   /*
     node = {
