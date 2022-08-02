@@ -22,13 +22,9 @@ const formater = require('../formater/formater');
 //  formats
 const formats = ['plain', 'stylish', 'json'];
 // Tests
-test('flat cases', () => {
+test('formater test', () => {
   formats.forEach((format) => {
     expect((formater[format](flat))).toBe(output[format].flat);
-  });
-});
-test('nested cases', () => {
-  formats.forEach((format) => {
     expect((formater[format](nested))).toBe(output[format].nested);
   });
 });
