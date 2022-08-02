@@ -1,8 +1,7 @@
-const { isObject } = require('lodash');
-const getKeys = require('../modules/getKeys');
+const { isObject, has } = require('lodash');
 const getCustomEOL = require('../modules/getCustomEOL');
 const strigifyObj = require('../modules/stringifyObj');
-//  general variables
+//  prefixes
 const prefixes = {
   sim: '  ',
   remove: '- ',
@@ -17,20 +16,23 @@ const getTemplate = (key, value, prefix, indentRep) => (!isObject(value) ? styli
   : stylishTemplates.nested)(key, value, prefixes[prefix], indentRep);
 
 //  Stylish formater
-const strigifyStylish = (obj1, obj2, tree, indentRep = 4) => {
+const strigifyStylish = (tree, indentRep = 4) => {
   // Type Map
   const typeMap = {
-    sim: (key, before, after, rep) => getTemplate(key, before, 'sim', rep - 2),
-    remove: (key, before, after, rep) => getTemplate(key, before, 'remove', rep - 2),
-    add: (key, before, after, rep) => getTemplate(key, after, 'add', rep - 2),
-    update: (key, before, after, rep) => `${getTemplate(key, before, 'remove', rep - 2)}${getTemplate(key, after, 'add', rep - 2)}`,
-    nested: (key, before, after, rep, typeTree) => `${getCustomEOL(rep)}${key}: ${strigifyStylish(before, after, typeTree, rep + 4)}`,
+    sim: (key, value, rep) => getTemplate(key, value, 'sim', rep - 2),
+    remove: (key, value, rep) => getTemplate(key, value, 'remove', rep - 2),
+    add: (key, value, rep) => getTemplate(key, value, 'add', rep - 2),
+    update: (key, value, rep) => `${getTemplate(key, value[0], 'remove', rep - 2)}${getTemplate(key, value[1], 'add', rep - 2)}`,
+    nested: (key, children, rep) => `${getCustomEOL(rep)}${key}: ${strigifyStylish(children, rep + 4)}`,
   };
-  const keys = getKeys(tree);
   //  get result string
-  const string = keys.map((key) => (!isObject(tree[key]) ? typeMap[tree[key]]
-    : typeMap.nested)(key, obj1[key], obj2[key], indentRep, tree[key])).join('');
-
+  const string = tree.reduce((result, node) => {
+    const { name, type } = node;
+    const value = has(node, 'before') ? [node.before, node.after] : node.value;
+    result.push(has(node, 'children') ? typeMap[type](name, node.children, indentRep)
+      : typeMap[type](name, value, indentRep));
+    return result;
+  }, []).join('');
   return `{${string}${getCustomEOL(indentRep - 4)}}`;
 };
 
