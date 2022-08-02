@@ -3,7 +3,7 @@ const parser = require('../parser/parser');
 const getTree = require('../typer/getTree');
 const formater = require('../formater/formater');
 //  main func
-module.exports = (filepath1, filepath2, format) => {
+module.exports = (filepath1, filepath2, format = 'stylish') => {
   //  parse files formats: [.json , .yml/.yaml]
   const [o1, o2] = [parser(filepath1), parser(filepath2)];
   //  get data tree [node{}, node{}, ...]

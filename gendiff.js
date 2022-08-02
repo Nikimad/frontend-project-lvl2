@@ -10,6 +10,8 @@ program
   .helpOption('-h, --help', 'output usage information')
   .option('-f, --format <type>', 'output format', 'stylish')
   .arguments('<filepath1> <filepath2>')
-  .action((filepath1, filepath2, { format }) => getDiff(filepath1, filepath2, format));
+  .action((filepath1, filepath2, { format }) => {
+    getDiff(filepath1, filepath2, format)
+  });
 
 program.parse();
