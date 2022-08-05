@@ -1,3 +1,3 @@
 const stringifyJson = (tree) => JSON.stringify(tree);
 
-module.exports = stringifyJson;
+export default stringifyJson;

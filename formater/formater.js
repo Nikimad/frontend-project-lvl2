@@ -1,6 +1,6 @@
-const stylish = require('./formaters/stylish-formater');
-const plain = require('./formaters/plain-formater');
-const json = require('./formaters/json-formater');
+import stylish from './formaters/stylish-formater';
+import plain from './formaters/plain-formater';
+import json from './formaters/json-formater';
 
 const formater = {
   stylish: (tree) => stylish(tree),
@@ -8,4 +8,4 @@ const formater = {
   json: (tree) => json(tree),
 };
 
-module.exports = formater;
+export default formater;

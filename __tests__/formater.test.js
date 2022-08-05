@@ -1,24 +1,24 @@
-const { test, expect } = require('@jest/globals');
-const { readFile } = require('../__fixtures__/test-functions');
+import { test, expect } from '@jest/globals';
+import { readFileSync as readFile } from 'fs';
 //  trees
-const { flat, nested } = require('../__fixtures__/test-trees');
+import { flat, nested } from '../__fixtures__/test-trees';
+//  formater func
+import formater from '../formater/formater';
 //  outputs
 const output = {
   plain: {
-    flat: readFile('diff-outputs/plain-flat.txt'),
-    nested: readFile('diff-outputs/plain-nested.txt'),
+    flat: readFile('./__fixtures__/diff-outputs/plain-flat.txt', 'utf-8'),
+    nested: readFile('./__fixtures__/diff-outputs/plain-nested.txt', 'utf-8'),
   },
   stylish: {
-    flat: readFile('diff-outputs/stylish-flat.txt'),
-    nested: readFile('diff-outputs/stylish-nested.txt'),
+    flat: readFile('./__fixtures__/diff-outputs/stylish-flat.txt', 'utf-8'),
+    nested: readFile('./__fixtures__/diff-outputs/stylish-nested.txt', 'utf-8'),
   },
   json: {
-    flat: readFile('diff-outputs/json-flat.txt'),
-    nested: readFile('diff-outputs/json-nested.txt'),
+    flat: readFile('./__fixtures__/diff-outputs/json-flat.txt', 'utf-8'),
+    nested: readFile('./__fixtures__/diff-outputs/json-nested.txt', 'utf-8'),
   },
 };
-//  formater func
-const formater = require('../formater/formater');
 //  formats
 const formats = ['plain', 'stylish', 'json'];
 // Tests

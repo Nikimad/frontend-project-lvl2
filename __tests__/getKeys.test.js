@@ -1,7 +1,7 @@
-const { test, expect } = require('@jest/globals');
-const { obj3, obj4 } = require('../__fixtures__/test-objects');
+import { test, expect } from '@jest/globals';
+import { obj3, obj4 } from '../__fixtures__/test-objects';
 //  func
-const getKeys = require('../modules/getKeys');
+import getKeys from '../modules/getKeys';
 //  expected result
 const sortedUniqueKeys = ['follow', 'host', 'proxy', 'timeout', 'verbose'];
 //  test

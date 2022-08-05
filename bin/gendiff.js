@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-const { Command } = require('commander');
+import { Command } from 'commander';
 //  main action
-const getDiff = require('../src/index');
+import getDiff from '../src/index';
 
 const program = new Command();
 
@@ -16,5 +16,3 @@ program
   });
 
 program.parse();
-
-

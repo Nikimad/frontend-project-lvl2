@@ -1,11 +1,11 @@
-const { test, expect } = require('@jest/globals');
-const { obj1, obj3 } = require('../__fixtures__/test-objects');
-const { readFile } = require('../__fixtures__/test-functions');
+import { test, expect } from '@jest/globals';
+import { readFileSync as readFile } from 'fs';
+import { obj1, obj3 } from '../__fixtures__/test-objects';
 //  func
-const stringifyObj = require('../modules/stringifyObj');
+import stringifyObj from '../modules/stringifyObj';
 //  output
-const flat = readFile('txt/flat.txt');
-const nested = readFile('txt/nested.txt');
+const flat = readFile('./__fixtures__/txt/flat.txt', 'utf-8');
+const nested = readFile('./__fixtures__/txt/nested.txt', 'utf-8');
 // test
 test('flat', () => {
   expect((stringifyObj(obj3))).toBe(flat);

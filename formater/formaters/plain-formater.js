@@ -1,13 +1,11 @@
-const { EOL } = require('node:os');
-const {
-  isObject, isString, has,
-} = require('lodash');
+import { EOL } from 'node:os';
+import _ from 'lodash';
 
 const valueCheck = (v) => {
-  if (isObject(v)) {
+  if (_.isObject(v)) {
     return '[complex value]';
   }
-  return isString(v) ? `'${v}'` : v;
+  return _.isString(v) ? `'${v}'` : v;
 };
 
 const tempStart = (path) => `Property '${path.join('.')}' `;
@@ -23,10 +21,10 @@ const strigifyPlain = (tree, path = []) => tree.filter((node) => node.type !== '
     const { type } = node;
     const newPath = [...path, node.name];// path resolve
 
-    const value = has(node, 'before') ? [node.before, node.after] : node.value;
+    const value = _.has(node, 'before') ? [node.before, node.after] : node.value;
 
-    return (has(node, 'children') ? strigifyPlain(node.children, newPath)
+    return (_.has(node, 'children') ? strigifyPlain(node.children, newPath)
       : templates[type](newPath, value));
   }).join(EOL);
 
-module.exports = strigifyPlain;
+export default strigifyPlain;

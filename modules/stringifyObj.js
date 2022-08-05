@@ -1,6 +1,6 @@
-const { isObject } = require('lodash');
-const getKeys = require('./getKeys');
-const getCustomEOL = require('./getCustomEOL');
+import _ from 'lodash';
+import getKeys from './getKeys';
+import getCustomEOL from './getCustomEOL';
 
 const strigifyObj = (obj, indentRep = 4) => {
   const keys = getKeys(obj);
@@ -10,9 +10,9 @@ const strigifyObj = (obj, indentRep = 4) => {
     nested: (key, value, rep) => `${getCustomEOL(rep)}${key}: ${strigifyObj(value, rep + 4)}`,
   };
   //  get result string
-  const string = keys.map((key) => (!isObject(obj[key]) ? map.flat : map.nested)(key, obj[key], indentRep)).join('');
+  const string = keys.map((key) => (!_.isObject(obj[key]) ? map.flat : map.nested)(key, obj[key], indentRep)).join('');
 
   return `{${string}${getCustomEOL(indentRep - 4)}}`;
 };
 
-module.exports = strigifyObj;
+export default strigifyObj;

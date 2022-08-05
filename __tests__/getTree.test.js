@@ -1,13 +1,13 @@
-const { test, expect } = require('@jest/globals');
-const {
+import { test, expect } from '@jest/globals';
+import {
   obj1, obj2, obj3, obj4,
-} = require('../__fixtures__/test-objects');
-const {
+} from '../__fixtures__/test-objects';
+import {
   flat,
   nested,
-} = require('../__fixtures__/test-trees');
+} from '../__fixtures__/test-trees';
 //  test function
-const getTree = require('../typer/getTree');
+import getTree from '../typer/getTree';
 //  test
 test('basic case', () => {
   expect(getTree(obj3, obj4)).toEqual(flat);

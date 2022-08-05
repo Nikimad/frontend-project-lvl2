@@ -1,4 +1,4 @@
-const obj1 = {
+export const obj1 = {
   common: {
     setting1: 'Value 1',
     setting2: 200,
@@ -24,7 +24,7 @@ const obj1 = {
     },
   },
 };
-const obj2 = {
+export const obj2 = {
   common: {
     follow: false,
     setting1: 'Value 1',
@@ -55,21 +55,14 @@ const obj2 = {
     fee: 100500,
   },
 };
-const obj3 = {
+export const obj3 = {
   host: 'hexlet.io',
   timeout: 50,
   proxy: '123.234.53.22',
   follow: false,
 };
-const obj4 = {
+export const obj4 = {
   timeout: 20,
   verbose: true,
   host: 'hexlet.io',
-};
-
-module.exports = {
-  obj1,
-  obj2,
-  obj3,
-  obj4,
 };

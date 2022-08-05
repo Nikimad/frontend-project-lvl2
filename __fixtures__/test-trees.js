@@ -1,4 +1,4 @@
-const flat = [
+export const flat = [
   { name: 'follow', type: 'remove', value: false },
   { name: 'host', type: 'sim', value: 'hexlet.io' },
   { name: 'proxy', type: 'remove', value: '123.234.53.22' },
@@ -7,7 +7,7 @@ const flat = [
   },
   { name: 'verbose', type: 'add', value: true },
 ];
-const nested = [
+export const nested = [
   {
     name: 'common',
     type: 'nested',
@@ -75,8 +75,3 @@ const nested = [
     },
   },
 ];
-
-module.exports = {
-  flat,
-  nested,
-};

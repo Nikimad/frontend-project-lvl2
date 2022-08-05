@@ -1,5 +1,5 @@
-const getKeys = require('../modules/getKeys');
-const getNode = require('./getNode');
+import getKeys from '../modules/getKeys';
+import getNode from './getNode';
 
 const getTree = (obj1, obj2) => {
   const keys = getKeys(obj1, obj2);
@@ -15,4 +15,4 @@ const getTree = (obj1, obj2) => {
   return tree;
 };
 
-module.exports = getTree;
+export default getTree;

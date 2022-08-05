@@ -1,6 +1,6 @@
-const { isObject, has } = require('lodash');
-const getCustomEOL = require('../../modules/getCustomEOL');
-const strigifyObj = require('../../modules/stringifyObj');
+import _ from 'lodash';
+import getCustomEOL from '../../modules/getCustomEOL';
+import strigifyObj from '../../modules/stringifyObj';
 //  prefixes
 const prefixes = {
   sim: '  ',
@@ -12,7 +12,7 @@ const stylishTemplates = {
   flat: (key, value, prefix, indentRep) => `${getCustomEOL(indentRep)}${prefix}${key}: ${value}`,
   nested: (key, value, prefix, indentRep) => `${getCustomEOL(indentRep)}${prefix}${key}: ${strigifyObj(value, indentRep + 6)}`,
 };
-const getTemplate = (key, value, prefix, indentRep) => (!isObject(value) ? stylishTemplates.flat
+const getTemplate = (key, value, prefix, indentRep) => (!_.isObject(value) ? stylishTemplates.flat
   : stylishTemplates.nested)(key, value, prefixes[prefix], indentRep);
 
 //  Stylish formater
@@ -28,11 +28,11 @@ const strigifyStylish = (tree, indentRep = 4) => {
   //  get result string
   const string = tree.map((node) => {
     const { name, type } = node;
-    const value = has(node, 'before') ? [node.before, node.after] : node.value;
-    return (has(node, 'children') ? typeMap[type](name, node.children, indentRep)
+    const value = _.has(node, 'before') ? [node.before, node.after] : node.value;
+    return (_.has(node, 'children') ? typeMap[type](name, node.children, indentRep)
       : typeMap[type](name, value, indentRep));
   }, []).join('');
   return `{${string}${getCustomEOL(indentRep - 4)}}`;
 };
 
-module.exports = strigifyStylish;
+export default strigifyStylish;

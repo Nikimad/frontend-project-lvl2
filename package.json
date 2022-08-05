@@ -6,9 +6,9 @@
   "bin": {
     "gendiff": "bin/gendiff.js"
   },
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
-    "test": "npx jest"
+    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest"
   },
   "repository": {
     "type": "git",

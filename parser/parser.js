@@ -1,9 +1,9 @@
 //  default lib
-const { cwd } = require('process');
-const { resolve, extname } = require('path');
-const fs = require('fs');
+import { cwd } from 'process';
+import { resolve, extname } from 'path';
+import fs from 'fs';
 //  YAML lib
-const YAML = require('js-yaml');
+import YAML from 'js-yaml';
 //  path-resolver
 const getResolvedPath = (filepath) => resolve(cwd(), filepath);
 //  parsers
@@ -32,4 +32,4 @@ const getParsedFileData = (filepath) => {
   return parsedFileData;
 };
 
-module.exports = getParsedFileData;
+export default getParsedFileData;

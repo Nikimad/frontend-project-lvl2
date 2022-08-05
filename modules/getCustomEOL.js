@@ -1,6 +1,6 @@
-const { EOL } = require('node:os');
+import { EOL } from 'node:os';
 
 const indent = ' ';
 const getCustomEOL = (indentRep) => `${EOL}${indent.repeat(indentRep)}`;
 
-module.exports = getCustomEOL;
+export default getCustomEOL;
