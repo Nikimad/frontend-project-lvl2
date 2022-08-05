@@ -26,12 +26,11 @@ const strigifyStylish = (tree, indentRep = 4) => {
     nested: (key, children, rep) => `${getCustomEOL(rep)}${key}: ${strigifyStylish(children, rep + 4)}`,
   };
   //  get result string
-  const string = tree.reduce((result, node) => {
+  const string = tree.map((node) => {
     const { name, type } = node;
     const value = has(node, 'before') ? [node.before, node.after] : node.value;
-    result.push(has(node, 'children') ? typeMap[type](name, node.children, indentRep)
+    return (has(node, 'children') ? typeMap[type](name, node.children, indentRep)
       : typeMap[type](name, value, indentRep));
-    return result;
   }, []).join('');
   return `{${string}${getCustomEOL(indentRep - 4)}}`;
 };

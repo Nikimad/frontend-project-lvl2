@@ -18,17 +18,15 @@ const templates = {
   update: (path, value) => `${tempStart(path)}was updated. From ${valueCheck(value[0])} to ${valueCheck(value[1])}`,
 };
 //  plain formater (typeTree, path*)
-const strigifyPlain = (tree, path = []) => tree.reduce((result, node) => {
-  const { type } = node;
-  if (type !== 'sim') {
+const strigifyPlain = (tree, path = []) => tree.filter((node) => node.type !== 'sim')
+  .map((node) => {
+    const { type } = node;
     const newPath = [...path, node.name];// path resolve
 
     const value = has(node, 'before') ? [node.before, node.after] : node.value;
 
-    result.push(has(node, 'children') ? strigifyPlain(node.children, newPath)
+    return (has(node, 'children') ? strigifyPlain(node.children, newPath)
       : templates[type](newPath, value));
-  }
-  return result;
-}, []).join(EOL);
+  }).join(EOL);
 
 module.exports = strigifyPlain;

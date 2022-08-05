@@ -1,18 +1,10 @@
-const { keys, uniq } = require('lodash');
+const { keys, sortBy, sortedUniq } = require('lodash');
 
-function getKeys(...objects) {
-  //  get all keys
-  const keysArr = objects.reduce((acc, obj) => {
-    acc.push(...keys(obj));
-
-    return acc;
-  }, []);
+function getKeys(o1, o2) {
+  //  get all keys and sort it
+  const sortedKeys = sortBy([o1, o2].flatMap((obj) => keys(obj)));
   //  get unique keys
-  const keysSet = uniq(keysArr);
-
-  const sortedKeys = keysSet.sort((a, b) => (a.toLowerCase() > b.toLowerCase() ? 1 : -1));
-
-  return sortedKeys;
+  return sortedUniq(sortedKeys);
 }
 
 module.exports = getKeys;

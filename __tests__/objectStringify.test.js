@@ -7,9 +7,9 @@ const stringifyObj = require('../modules/stringifyObj');
 const flat = readFile('txt/flat.txt');
 const nested = readFile('txt/nested.txt');
 // test
-test('test flat', () => {
+test('flat', () => {
   expect((stringifyObj(obj3))).toBe(flat);
 });
-test('test deep', () => {
+test('deep', () => {
   expect((stringifyObj(obj1))).toBe(nested);
 });
