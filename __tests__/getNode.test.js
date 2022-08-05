@@ -1,13 +1,13 @@
 import { test, expect } from '@jest/globals';
 import {
   obj1, obj2, obj3, obj4,
-} from '../__fixtures__/test-objects';
+} from '../__fixtures__/test-objects.js';
 import {
   flat,
   nested,
-} from '../__fixtures__/test-trees';
+} from '../__fixtures__/test-trees.js';
 //  test function
-import getNode from '../typer/getNode';
+import getNode from '../typer/getNode.js';
 //  expected nodes
 const keyHostNodeTypeSim = flat[1];
 const keyProxyNodeTypeRemove = flat[2];

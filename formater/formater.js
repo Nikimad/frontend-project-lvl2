@@ -1,6 +1,6 @@
-import stylish from './formaters/stylish-formater';
-import plain from './formaters/plain-formater';
-import json from './formaters/json-formater';
+import stylish from './formaters/stylish-formater.js';
+import plain from './formaters/plain-formater.js';
+import json from './formaters/json-formater.js';
 
 const formater = {
   stylish: (tree) => stylish(tree),

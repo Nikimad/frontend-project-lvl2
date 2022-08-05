@@ -1,7 +1,7 @@
 import { test, expect } from '@jest/globals';
-import { obj3, obj4 } from '../__fixtures__/test-objects';
+import { obj3, obj4 } from '../__fixtures__/test-objects.js';
 //  func
-import getParsedFileData from '../parser/parser';
+import getParsedFileData from '../parser/parser.js';
 //  test
 test('JSON parse', () => {
   expect(getParsedFileData('./__fixtures__/file3.json')).toEqual(obj3);

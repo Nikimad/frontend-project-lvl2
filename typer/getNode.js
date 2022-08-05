@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import getKeys from '../modules/getKeys';
+import getKeys from '../modules/getKeys.js';
 
 const getChildren = (o1, o2, getter) => {
   const chidrenKeys = getKeys(o1, o2);

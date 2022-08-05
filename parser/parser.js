@@ -22,7 +22,7 @@ const getData = (filepath) => {
   return fs.readFileSync(resolvedPath, 'utf-8');
 };
 // get parsed file data
-const getParsedFileData = (filepath) => {
+export default (filepath) => {
   //  get file data and .extension
   const ext = extname(filepath);
   const data = getData(filepath);
@@ -31,5 +31,3 @@ const getParsedFileData = (filepath) => {
 
   return parsedFileData;
 };
-
-export default getParsedFileData;

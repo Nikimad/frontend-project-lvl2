@@ -1,7 +1,7 @@
 //  modules
-import parser from '../parser/parser';
-import getTree from '../typer/getTree';
-import formater from '../formater/formater';
+import parser from '../parser/parser.js';
+import getTree from '../typer/getTree.js';
+import formater from '../formater/formater.js';
 //  main func
 export default (filepath1, filepath2, format = 'stylish') => {
   //  parse files formats: [.json , .yml/.yaml]

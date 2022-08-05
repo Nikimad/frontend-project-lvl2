@@ -1,6 +1,6 @@
 import _ from 'lodash';
-import getCustomEOL from '../../modules/getCustomEOL';
-import strigifyObj from '../../modules/stringifyObj';
+import getCustomEOL from '../../modules/getCustomEOL.js';
+import strigifyObj from '../../modules/stringifyObj.js';
 //  prefixes
 const prefixes = {
   sim: '  ',

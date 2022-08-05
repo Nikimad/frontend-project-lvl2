@@ -1,6 +1,6 @@
 import _ from 'lodash';
-import getKeys from './getKeys';
-import getCustomEOL from './getCustomEOL';
+import getKeys from './getKeys.js';
+import getCustomEOL from './getCustomEOL.js';
 
 const strigifyObj = (obj, indentRep = 4) => {
   const keys = getKeys(obj);

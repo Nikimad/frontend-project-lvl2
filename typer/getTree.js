@@ -1,5 +1,5 @@
-import getKeys from '../modules/getKeys';
-import getNode from './getNode';
+import getKeys from '../modules/getKeys.js';
+import getNode from './getNode.js';
 
 const getTree = (obj1, obj2) => {
   const keys = getKeys(obj1, obj2);

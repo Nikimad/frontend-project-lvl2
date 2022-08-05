@@ -1,7 +1,7 @@
 import { test, expect } from '@jest/globals';
-import { obj3, obj4 } from '../__fixtures__/test-objects';
+import { obj3, obj4 } from '../__fixtures__/test-objects.js';
 //  func
-import getKeys from '../modules/getKeys';
+import getKeys from '../modules/getKeys.js';
 //  expected result
 const sortedUniqueKeys = ['follow', 'host', 'proxy', 'timeout', 'verbose'];
 //  test

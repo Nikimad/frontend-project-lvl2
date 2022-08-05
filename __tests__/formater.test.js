@@ -1,9 +1,9 @@
 import { test, expect } from '@jest/globals';
 import { readFileSync as readFile } from 'fs';
 //  trees
-import { flat, nested } from '../__fixtures__/test-trees';
+import { flat, nested } from '../__fixtures__/test-trees.js';
 //  formater func
-import formater from '../formater/formater';
+import formater from '../formater/formater.js';
 //  outputs
 const output = {
   plain: {

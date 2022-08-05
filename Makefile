@@ -9,8 +9,8 @@ test-coverage:
 fix:
 	npx eslint . --fix
 stylish:
-	node gendiff ./__fixtures__/yml/file1.yml ./__fixtures__/yml/file2.yml
+	node bin/gendiff ./__fixtures__/file1.yml ./__fixtures__/file2.yml
 plain:
-	node gendiff --format plain ./__fixtures__/yml/file1.yml ./__fixtures__/yml/file2.yml
+	node bin/gendiff --format plain ./__fixtures__/file1.yml ./__fixtures__/file2.yml
 json:
-	node gendiff --format json ./__fixtures__/yml/file1.yml ./__fixtures__/yml/file2.yml
+	node bin/gendiff --format json ./__fixtures__/file1.yml ./__fixtures__/file2.yml
